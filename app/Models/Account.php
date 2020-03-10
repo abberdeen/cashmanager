@@ -6,6 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Account extends Model
 {
+
+    protected $fillable = ['name', 'balance', 'currency_id', 'user_id'];
+
     /**
      * The table associated with the model.
      *
@@ -19,6 +22,12 @@ class Account extends Model
      * @var string
      */
     protected $primaryKey = 'id';
+
+    /**
+     *
+     * @var integer
+     */
+    const FIELD_USER_ID = "user_id";
 
     /**
      * Get the user record associated with the account.
@@ -42,7 +51,15 @@ class Account extends Model
 
     /**
      *
-     * @var string
+     * @var integer
      */
-    const FIELD_CURRENCY = "currency";
+    const FIELD_CURRENCY_ID = "currency_id";
+
+    /**
+     * Get the currency record associated with the account.
+     */
+    public function currency()
+    {
+        return $this->belongsTo('App\Models\Currency');
+    }
 }
