@@ -13,7 +13,7 @@
                             @method('patch')
                             <div class="form-group">
                                 <label for="accountName">{{ __('Название') }}</label>
-                                <input type="text" class="form-control @error('name') is-invalid @enderror"  value="{{strlen(old('name'))>0 ? old('name') : $personal->name}}" id="accountName"  name="name" aria-describedby="nameHelp" required>
+                                <input type="text" class="form-control @error('name') is-invalid @enderror"  value="{{ old('name') ?? $personal->name }}" id="accountName"  name="name" aria-describedby="nameHelp" required>
                                 @if ($errors->has('name'))
                                     <small id="nameHelp" class="form-text text-danger">{{ __('Название должно быть не менее 3 символов и не более 60 символов') }}</small>
                                 @endif

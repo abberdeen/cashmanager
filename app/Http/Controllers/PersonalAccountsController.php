@@ -68,7 +68,6 @@ class PersonalAccountsController extends Controller
         $personal->update([
             'user_id' => auth()->id(),
             'name' => $request['name'],
-            'balance' => 0,
             'currency_id' => $request['currency']
         ]);
         return redirect(action('PersonalAccountsController@index'));

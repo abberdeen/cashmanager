@@ -59,8 +59,8 @@
                                     {{ __('Операции') }}
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="#">{{ __('Расходы') }}</a>
-                                    <a class="dropdown-item" href="#">{{ __('Доходы') }}</a>
+                                    <a class="dropdown-item" href="{{ action('ExpensesController@index') }}">{{ __('Расходы') }}</a>
+                                    <a class="dropdown-item" href="{{ action('IncomesController@index') }}">{{ __('Доходы') }}</a>
                                 </div>
                             </li>
                         @endguest

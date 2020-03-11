@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Income extends Model
 {
+    protected $fillable = ['user_id','desc','amount','currency_id','personal_account_id','income_account_id'];
+
     /**
      * The table associated with the model.
      *
@@ -25,7 +27,7 @@ class Income extends Model
      */
     public function user()
     {
-        return $this->hasOne('App\Models\User');
+        return $this->belongsTo('App\Models\User');
     }
 
     /**
@@ -40,21 +42,28 @@ class Income extends Model
      */
     const FIELD_AMOUNT = "amount";
 
+    /**
+     * Get the currency record associated with the income.
+     */
+    public function currency()
+    {
+        return $this->belongsTo('App\Models\Currency');
+    }
 
     /**
      * Get the personal_account record associated with the income.
      */
-    public function account()
+    public function personalAccount()
     {
-        return $this->hasOne('App\Models\PersonalAccount');
+        return $this->belongsTo('App\Models\PersonalAccount','personal_account_id');
     }
 
     /**
-     * Get the incomeCategory record associated with the income.
+     * Get the incomeAccount record associated with the income.
      */
-    public function incomeCategory()
+    public function incomeAccount()
     {
-        return $this->hasOne('App\Models\IncomeAccount');
+        return $this->belongsTo('App\Models\IncomeAccount','income_account_id');
     }
 
     /**
