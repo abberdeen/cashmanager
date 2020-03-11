@@ -42,11 +42,11 @@ class Income extends Model
 
 
     /**
-     * Get the account record associated with the income.
+     * Get the personal_account record associated with the income.
      */
     public function account()
     {
-        return $this->hasOne('App\Models\Account');
+        return $this->hasOne('App\Models\PersonalAccount');
     }
 
     /**
@@ -54,7 +54,7 @@ class Income extends Model
      */
     public function incomeCategory()
     {
-        return $this->hasOne('App\Models\IncomeCategory');
+        return $this->hasOne('App\Models\IncomeAccount');
     }
 
     /**

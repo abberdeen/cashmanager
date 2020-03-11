@@ -4,14 +4,16 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class IncomeCategory extends Model
+class Category extends Model
 {
+    protected $fillable = ['name', 'user_id'];
+
     /**
      * The table associated with the model.
      *
      * @var string
      */
-    protected $table = 'income_category';
+    protected $table = 'categories';
 
     /**
      * The primary key associated with the table.
@@ -21,16 +23,14 @@ class IncomeCategory extends Model
     protected $primaryKey = 'id';
 
     /**
-     * Get the user record associated with the income category.
-     */
-    public function user()
-    {
-        return $this->hasOne('App\Models\User');
-    }
-
-    /**
      *
      * @var string
      */
     const FIELD_NAME = "name";
+
+    /**
+     *
+     * @var float
+     */
+    const FIELD_CODE = "user_id";
 }

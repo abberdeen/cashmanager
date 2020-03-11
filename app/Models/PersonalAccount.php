@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Account extends Model
+class PersonalAccount extends Model
 {
 
     protected $fillable = ['name', 'balance', 'currency_id', 'user_id'];
@@ -14,7 +14,7 @@ class Account extends Model
      *
      * @var string
      */
-    protected $table = 'accounts';
+    protected $table = 'personal_accounts';
 
     /**
      * The primary key associated with the table.
@@ -30,7 +30,7 @@ class Account extends Model
     const FIELD_USER_ID = "user_id";
 
     /**
-     * Get the user record associated with the account.
+     * Get the user record associated with the personal_account.
      */
     public function user()
     {
@@ -56,7 +56,7 @@ class Account extends Model
     const FIELD_CURRENCY_ID = "currency_id";
 
     /**
-     * Get the currency record associated with the account.
+     * Get the currency record associated with the personal_account.
      */
     public function currency()
     {

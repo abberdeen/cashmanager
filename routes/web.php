@@ -17,9 +17,23 @@ Route::get('/', function () {
 
 Auth::routes();
 
-
 Route::get('/home', 'HomeController@index')->name('home');
 
+Route::resource('accounts/personal', 'PersonalAccountsController')->middleware('auth');
+Route::post('/accounts/personal/save', 'PersonalAccountsController@store');
 
-Route::resource('accounts', 'AccountsController')->middleware('auth');
-Route::post('/accounts/submit', 'AccountsController@store');
+Route::resource('accounts/expense', 'ExpenseAccountsController')->middleware('auth');
+Route::post('/accounts/expense/save', 'ExpenseAccountsController@store');
+
+Route::resource('accounts/income', 'IncomeAccountsController')->middleware('auth');
+Route::post('/accounts/income/save', 'IncomeAccountsController@store');
+
+Route::resource('categories', 'CategoriesController')->middleware('auth');
+Route::post('/categories/save', 'CategoriesController@store');
+
+function outRoutes(){
+    $routeCollection = Route::getRoutes();
+    foreach ($routeCollection as $value) {
+        echo($value->uri)."<br>";
+    }
+}

@@ -42,11 +42,11 @@ class Expense extends Model
 
 
     /**
-     * Get the account record associated with the expense.
+     * Get the personal_account record associated with the expense.
      */
     public function account()
     {
-        return $this->hasOne('App\Models\Account');
+        return $this->hasOne('App\Models\PersonalAccount');
     }
 
     /**
@@ -54,7 +54,7 @@ class Expense extends Model
      */
     public function expenseCategory()
     {
-        return $this->hasOne('App\Models\IncomeCategory');
+        return $this->hasOne('App\Models\IncomeAccount');
     }
 
     /**

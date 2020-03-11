@@ -4,14 +4,16 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class ExpenseCategory extends Model
+class ExpenseAccount extends Model
 {
+    protected $fillable = ['name', 'notes' , 'user_id'];
+
     /**
      * The table associated with the model.
      *
      * @var string
      */
-    protected $table = 'expense_category';
+    protected $table = 'expense_accounts';
 
     /**
      * The primary key associated with the table.
@@ -33,5 +35,6 @@ class ExpenseCategory extends Model
      * @var string
      */
     const FIELD_NAME = "name";
+
 
 }
